@@ -1,0 +1,12 @@
+com\dongren\service\impl\RoleServiceImpl.class
+com\dongren\service\PermissionService.class
+com\dongren\service\impl\OrdersServiceImpl.class
+com\dongren\service\SysLogService.class
+com\dongren\service\RoleService.class
+com\dongren\service\ProductService.class
+com\dongren\service\OrdersService.class
+com\dongren\service\impl\PermissionServiceImpl.class
+com\dongren\service\impl\UserServiceImpl.class
+com\dongren\service\UserService.class
+com\dongren\service\impl\ProductServiceImpl.class
+com\dongren\service\impl\SysLogServiceImpl.class

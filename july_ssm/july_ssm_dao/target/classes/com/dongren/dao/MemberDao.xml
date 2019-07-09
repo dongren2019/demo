@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongren.dao.MemberDao">
+    <resultMap id="memberResultMap" type="member">
+        <id property="id" column="id"></id>
+        <result property="name" column="name" />
+        <result property="nickname" column="nickname" />
+        <result property="phoneNum" column="phoneNum" />
+        <result property="email" column="email" />
+    </resultMap>
+
+    <select id="findMemberById" parameterType="int" resultMap="memberResultMap">
+        select * from member where id = #{id}
+    </select>
+</mapper>

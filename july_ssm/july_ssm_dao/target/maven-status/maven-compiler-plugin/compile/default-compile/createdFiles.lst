@@ -1,0 +1,8 @@
+com\dongren\dao\TravellerDao.class
+com\dongren\dao\PermissionDao.class
+com\dongren\dao\ProductDao.class
+com\dongren\dao\OrdersDao.class
+com\dongren\dao\UserDao.class
+com\dongren\dao\SysLogDao.class
+com\dongren\dao\RoleDao.class
+com\dongren\dao\MemberDao.class

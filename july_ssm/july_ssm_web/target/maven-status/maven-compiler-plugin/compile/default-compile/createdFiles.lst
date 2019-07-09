@@ -1,0 +1,7 @@
+com\dongren\controller\LogAop.class
+com\dongren\controller\PageController.class
+com\dongren\controller\PermissionController.class
+com\dongren\controller\UserController.class
+com\dongren\controller\ProductController.class
+com\dongren\controller\OrdersController.class
+com\dongren\controller\RoleController.class

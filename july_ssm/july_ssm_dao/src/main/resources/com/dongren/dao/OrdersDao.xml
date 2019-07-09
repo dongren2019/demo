@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongren.dao.OrdersDao">
+    <resultMap id="ordersResultMap" type="orders">
+        <id property="id" column="id"></id>
+        <result property="orderNum" column="orderNum" />
+        <result property="orderTime" column="orderTime" />
+        <result property="orderStatus" column="orderStatus" />
+        <result property="peopleCount" column="peopleCount" />
+        <result property="payType" column="payType" />
+        <result property="orderDesc" column="orderDesc" />
+        <association property="product" javaType="product"
+            select="com.dongren.dao.ProductDao.findById" column="productId">
+        </association>
+    </resultMap>
+
+    <resultMap id="ordersDetailResultMap" type="orders">
+        <id property="id" column="id"></id>
+        <result property="orderNum" column="orderNum" />
+        <result property="orderTime" column="orderTime" />
+        <result property="orderStatus" column="orderStatus" />
+        <result property="peopleCount" column="peopleCount" />
+        <result property="payType" column="payType" />
+        <result property="orderDesc" column="orderDesc" />
+        <association property="product" javaType="product"
+                     select="com.dongren.dao.ProductDao.findById" column="productId">
+        </association>
+        <association property="member" javaType="member"
+                     select="com.dongren.dao.MemberDao.findMemberById" column="productId">
+        </association>
+        <collection property="travellers" ofType="traveller"
+                    select="com.dongren.dao.TravellerDao.findTravellerListByOId" column="id">
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="ordersResultMap">
+        select * from orders
+    </select>
+
+    <select id="selectOrdersById" parameterType="int" resultMap="ordersDetailResultMap">
+        select * from orders where id = #{id}
+    </select>
+</mapper>

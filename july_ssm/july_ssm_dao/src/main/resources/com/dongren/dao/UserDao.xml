@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongren.dao.UserDao">
+    <resultMap id="baseResultMap" type="userInfo">
+        <id property="id" column="id"></id>
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="phoneNum" column="phoneNum" />
+        <result property="email" column="email" />
+        <result property="status" column="status" />
+    </resultMap>
+    <resultMap id="userResultMap" type="userInfo">
+        <id property="id" column="id"></id>
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="phoneNum" column="phoneNum" />
+        <result property="email" column="email" />
+        <result property="status" column="status" />
+        <collection property="roles" ofType="role" column="id"
+            select="com.dongren.dao.RoleDao.selectRoleListByUserId">
+        </collection>
+    </resultMap>
+
+    <select id="findUserAll" resultMap="baseResultMap">
+        select * from user
+    </select>
+
+    <select id="findByUsername" parameterType="string" resultMap="userResultMap">
+        select * from user where username = #{#username}
+    </select>
+
+    <insert id="insert" parameterType="userInfo">
+        insert into user values(null,#{username},#{password},#{phoneNum},#{email},#{status})
+    </insert>
+
+    <select id="selectUserById" parameterType="int" resultMap="userResultMap">
+        select * from user where id = #{id}
+    </select>
+
+    <insert id="insertRoleToUser" parameterType="map">
+        insert into user_role values(#{userId},#{roleId})
+    </insert>
+
+</mapper>

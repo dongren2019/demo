@@ -1,0 +1,8 @@
+com\dongren\domain\SysLog.class
+com\dongren\domain\UserInfo.class
+com\dongren\domain\Orders.class
+com\dongren\domain\Traveller.class
+com\dongren\domain\Permission.class
+com\dongren\domain\Member.class
+com\dongren\domain\Role.class
+com\dongren\domain\Product.class
